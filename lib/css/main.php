@@ -27,8 +27,8 @@
 		///////////////////////////////////////////////////////
 		
 		$my_vars = array(
-			"V_A" => "#fff",
-			"V_SIDBAR" => "#ccc"
+			"V_Background" => "#fff",
+			"V_Sidebar" => "#acc"
 			);
 		
 		///////////////////////////////////////////////////////
@@ -40,7 +40,7 @@
 
 		//Loops through found variables
 		foreach ($matches[0] as $value){
-			echo $value;
+
 			//Initializes replace_val
 			$replace_val = "";
 			
@@ -64,14 +64,91 @@
 /*Welcome*/
 
 body{
-	background-color:V_A;
+	background-color:V_Background;
+	padding:0px;
 }
 
+header{
+	position:absolute;
+	top:0px;
+	left:0px;
+	height:60px;
+	width:100%;
+	background-color:V_Sidebar;
+	margin:0px;
+}
+
+header div#inner_header{
+	height:100%;
+	width:800px;
+	margin:0px auto;
+}
+
+div#inner_header h1{
+	float:left;
+	margin:10px 0px 0px 100px;
+}
+
+nav{
+	float:right;
+	margin:5px 100px 0px 0px;
+}
+
+nav ul li{
+	display:inline-block;
+	padding: 0px 10px 0px 10px;
+	
+
+}
 aside{
-	background-color:V_SIDBAR;
-	width:100px;
+	position:fixed;
+	top:0px;
 	height:100%;
 }
+
+aside.hidden{
+	left:-25px;
+	width:50px;
+}
+
+aside.hidden:hover{
+	left:0px;
+}
+
+svg#arrow{
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.mask{
+	display:none;
+	position:fixed;
+	top:0;
+    left:0;
+	width:100%;
+    height:100%;
+	opacity:0.0;
+	z-index:250;
+}
+
+aside#sidebar{
+	background-color:V_Sidebar;
+	width:300px;
+	left:-300px;
+	z-index:500;
+	
+}
+
+aside#sidebar:target{
+	left:0px;
+}
+
+aside#sidebar:target ~ .mask{
+	display:block;
+	
+}
+
+
 
 <?php
 	//Grabs contents of buffer
