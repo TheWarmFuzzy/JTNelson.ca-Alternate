@@ -27,8 +27,8 @@
 		///////////////////////////////////////////////////////
 		
 		$my_vars = array(
-			"V_A" => "#fff"
-		
+			"V_A" => "#fff",
+			"V_SIDBAR" => "#ccc"
 			);
 		
 		///////////////////////////////////////////////////////
@@ -36,11 +36,11 @@
 		///////////////////////////////////////////////////////
 
 		//Finds and lists variable names
-		preg_match('/V_[A-Za-z0-9_]*/', $buffer, $matches);
-		
+		preg_match_all('/V_[A-Za-z0-9_]*/', $buffer, $matches);
+
 		//Loops through found variables
-		foreach ($matches as $value){
-		
+		foreach ($matches[0] as $value){
+			echo $value;
 			//Initializes replace_val
 			$replace_val = "";
 			
@@ -54,6 +54,7 @@
 			//Replaces variables in the buffer with the corresponding one in php
 			$buffer = str_replace($value, $replace_val, $buffer);
 		}
+		
 		return $buffer;
 	}
 	
@@ -66,6 +67,11 @@ body{
 	background-color:V_A;
 }
 
+aside{
+	background-color:V_SIDBAR;
+	width:100px;
+	height:100%;
+}
 
 <?php
 	//Grabs contents of buffer
