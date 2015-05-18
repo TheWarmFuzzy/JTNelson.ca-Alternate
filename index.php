@@ -24,7 +24,11 @@
 				</nav>
 			</div>
 		</header>
-		
+		<div class="container">
+			<main>
+				hi thar
+			</main>
+		</div>
 		
 		<a href="#sidebar">
 			<aside class="hidden">
@@ -34,8 +38,22 @@
 			</aside>
 		</a>
 		<aside id="sidebar">
-			
+			<h1>
+				Search
+			</h1>
+			<input type="text" id="tb_search"/>
+			<div id="div_search_contents">
+				<a href="#">
+					<div class="search_result">
+						<img/>
+						<div class="sr_title">
+							hello
+						</div>
+					</div>
+				</a>
+			</div>
 			<a href="#" class="mask"/>
 		</aside>
+		
 	</body>
 </html>
